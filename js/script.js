@@ -580,11 +580,13 @@ function randomColor(options) {
 	return color;
 }
 
-// 随机获取一段文字
+let currentIndex = 0;
 function randomWord() {
-	if (randomWords.length === 0) return "";
-	if (randomWords.length === 1) return randomWords[0];
-	return randomWords[(Math.random() * randomWords.length) | 0];
+    if (randomWords.length === 0) return "";
+    if (randomWords.length === 1) return randomWords[0];
+    const word = randomWords[currentIndex];
+    currentIndex = (currentIndex + 1) % randomWords.length;
+    return word;
 }
 
 function whiteOrGold() {
